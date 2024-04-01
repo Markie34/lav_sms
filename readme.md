@@ -8,7 +8,7 @@
 <img src="https://i.ibb.co/D4T0z6T/dashboard.png" alt="dashboard" border="0">
 
 **Login**
-<img src="https://i.ibb.co/Rh1Bfwk/login.png" alt="login" border="0">
+<img src="https://i.ibb.co/PcCFHpP/1.png" alt="login" border="0">
 
 **Student Marksheet**
 <img src="https://i.ibb.co/GCgv5ZR/marksheet.png" alt="marksheet" border="0">
