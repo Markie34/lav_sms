@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
@@ -18,10 +19,14 @@ Route::group(['middleware' => 'auth'], function () {
         Route::put('/', 'MyAccountController@update_profile')->name('my_account.update');
         Route::put('/change_password', 'MyAccountController@change_pass')->name('my_account.change_pass');
     });
-
+    
     /*************** Support Team *****************/
     Route::group(['namespace' => 'SupportTeam',], function(){
-
+       /*************** Upload Materials *****************/
+    Route::group(['prefix' => 'materials'], function(){
+        Route::get('upload-materials', 'MaterialController@index')->name('uploadMaterials.index');
+        Route::post('upload-materials', 'MaterialController@store')->name('uploadMaterials.store');       
+    });
         /*************** Students *****************/
         Route::group(['prefix' => 'students'], function(){
             Route::get('reset_pass/{st_id}', 'StudentRecordController@reset_pass')->name('st.reset_pass');
@@ -69,6 +74,7 @@ Route::group(['middleware' => 'auth'], function () {
                 Route::delete('/{ttr}', 'TimeTableController@delete_record')->name('ttr.destroy');
 
             });
+
 
             /*************** Time Slots *****************/
             Route::group(['prefix' => 'time_slots', 'middleware' => 'teamSA'], function(){
@@ -134,7 +140,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('print/{id}/{exam_id}/{year}', 'MarkController@print_view')->name('marks.print');
 
         });
-
+      
         Route::resource('students', 'StudentRecordController');
         Route::resource('users', 'UserController');
         Route::resource('classes', 'MyClassController');
@@ -153,6 +159,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('get_class_sections/{class_id}', 'AjaxController@get_class_sections')->name('get_class_sections');
         Route::get('get_class_subjects/{class_id}', 'AjaxController@get_class_subjects')->name('get_class_subjects');
     });
+
 
 });
 

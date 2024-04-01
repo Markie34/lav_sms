@@ -13,6 +13,7 @@
                 @csrf @method('PUT')
                 <h6>Personal Data</h6>
                 <fieldset>
+                    {{--Start row--}}
                     <div class="row">
                         <div class="col-md-2">
                             <div class="form-group">
@@ -30,14 +31,21 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-3">
                             <div class="form-group">
                                 <label>Address: <span class="text-danger">*</span></label>
                                 <input value="{{ $user->address }}" class="form-control" placeholder="Address" name="address" type="text" required>
                             </div>
                         </div>
-                    </div>
-
+                        {{--Date of Birth--}}
+                          <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Date of Birth:</label>
+                                    <input name="dob" value="{{$user->dob}}" type="text" class="form-control date-pick" placeholder="Select Date...">
+                                </div>
+                            </div>
+                        </div>
+                    {{--End row--}}
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
@@ -83,7 +91,7 @@
                                 </select>
                             </div>
                         </div>
-
+                      {{--Nationality--}}
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="nal_id">Nationality: <span class="text-danger">*</span></label>

@@ -126,8 +126,15 @@
                             </div>
 
                             <div class="row">
+                                {{--Date of Birth--}}
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Date of Birth:</label>
+                                        <input name="dob" value="{{ old('dob') }}" type="text" class="form-control date-pick" placeholder="Select Date...">
+                                    </div>
+                                </div>
                                 {{--State--}}
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <label for="state_id">State: <span class="text-danger">*</span></label>
                                     <select onchange="getLGA(this.value)" required data-placeholder="Choose.." class="select-search form-control" name="state_id" id="state_id">
                                         <option value=""></option>
@@ -137,14 +144,14 @@
                                     </select>
                                 </div>
                                 {{--LGA--}}
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <label for="lga_id">LGA: <span class="text-danger">*</span></label>
                                     <select required data-placeholder="Select State First" class="select-search form-control" name="lga_id" id="lga_id">
                                         <option value=""></option>
                                     </select>
                                 </div>
                                 {{--BLOOD GROUP--}}
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="bg_id">Blood Group: </label>
                                         <select class="select form-control" id="bg_id" name="bg_id" data-fouc data-placeholder="Choose..">

@@ -73,7 +73,7 @@ class UserController extends Controller
         $data['user_type'] = $user_type;
         $data['photo'] = Qs::getDefaultUserImage();
         $data['code'] = strtoupper(Str::random(10));
-
+          
         $user_is_staff = in_array($user_type, Qs::getStaff());
         $user_is_teamSA = in_array($user_type, Qs::getTeamSA());
 
@@ -141,6 +141,7 @@ class UserController extends Controller
             $f['name'] = 'photo.' . $f['ext'];
             $f['path'] = $photo->storeAs(Qs::getUploadPath($user_type).$user->code, $f['name']);
             $data['photo'] = asset('storage/' . $f['path']);
+            
         }
 
         $this->user->update($id, $data);   /* UPDATE USER RECORD */

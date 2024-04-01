@@ -212,4 +212,29 @@
 
             </form>
         </div>
+    <script>
+// Listen for change event on the state dropdown
+document.getElementById('state_id').addEventListener('change', function() {
+    var selectedState = this.value;
+
+    // Make AJAX request to fetch LGAs for the selected state
+    fetch('/api/lgas/' + selectedState)
+        .then(response => response.json())
+        .then(data => {
+            // Clear previous LGAs and populate the dropdown with new LGAs
+            var lgaSelect = document.getElementById('lga-select');
+            lgaSelect.innerHTML = ''; // Clear previous options
+            data.lgas.forEach(lga => {
+                var option = document.createElement('option');
+                option.value = lga.id;
+                option.text = lga.name;
+                lgaSelect.appendChild(option);
+            });
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+});
+
+    <script/>
     @endsection

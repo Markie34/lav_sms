@@ -14,7 +14,7 @@
                     <div>
                     <h1>{{ $material->title }}</h1> 
                     <p> {{ $material->description }}</p>
-                    <a href="{{ asset('storage/' . $material->file_path) }}" target="_blank">Download</a>
+                    <a href="{{ asset('storage/' . $material->file_path) }}" target="_blank" class="bg-success py-1 px-2 mt-4">Download</a>
                     </div>
                 </li>
             @endforeach
